@@ -31,8 +31,14 @@ My pipeline consisted of X steps.
 
 
 In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
-Category the hough lines in two cases: 1) slope>threshold 2)slope<-threshold
+Categorize the hough lines in two cases: 1) slope>threshold 2)slope<-threshold
 The tuning of threshold started from 0 and finalized at 0.4. To improve the robustness of the code, one me ore condition is applied to the line. For left lane, the x-coordinate has to stay in the rough left hand side; for right lane, the x-coordinate has to stay in the rough right hand. This condition was set up to filter some noise from the hough line generation. E.g., if some small segments are detected with negative slope but stays on the right half, then it should not fall into the left array. 
+
+After separating lines in two categories,  the endpoints of the lines are stored in four arrays (x_R,y_R,x_L,y_L) correspondingly. 
+
+After iterating through all lines in the set, I did a linear regression with polyfit on the two arrays for each lane. This curve fit outputs the slope and intercept of each line. A special case is considered where there are only 4 points in the array and there exist two linear regressions for the four points. A conditonal selection is conducted to make sure it outputs the correct slope.
+
+Next, to exterpolate the lines properly, I configured the endpoints for each lane based on the bottom line and the top point in each array. 
 
 
 If you'd like to include images to show how the pipeline works, here is how to include an image: 
