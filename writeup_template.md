@@ -14,9 +14,12 @@ The goals / steps of this project are the following:
 
 
 [//]: # (Image References)
-
-[image1]: ./examples/grayscale.jpg "Grayscale"
-
+[image0]: ./test_images/solidYellowLeft.jpg "OriginalPicture"
+[image1]: ./test_images_output/gray.png "Grayscale"
+[image2]: ./test_images_output/edges.png "CannyEdges"
+[image3]: ./test_images_output/region_of_interest.png "Region Of Interest"
+[image4]: ./test_images_output/line_img.png "Line Image"
+[image5]: ./test_images_output/weight_img.png "Overlap the line with original picture"
 ---
 
 ### Reflection
